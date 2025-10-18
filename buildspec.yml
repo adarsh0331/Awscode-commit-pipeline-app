@@ -12,4 +12,6 @@ phases:
       - cp style.css output/
 artifacts:
   files:
-    - output/**
+    - '**/*'
+  discard-paths: yes
+
