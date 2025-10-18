@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies (none for static site)"
+  build:
+    commands:
+      - echo "Building the static website..."
+      - mkdir output
+      - cp index.html output/
+      - cp style.css output/
+artifacts:
+  files:
+    - output/**
