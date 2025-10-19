@@ -52,3 +52,32 @@ warning: LF will be replaced by CRLF
 This is normal.
 Recommended for Linux deployment:
 git config --global core.autocrlf input
+=============================================
+s3+clod front policy
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::allibilli-s3-bucket/*"
+        },
+        {
+            "Sid": "AllowCloudFrontServicePrincipal",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::allibilli-s3-bucket/*",
+            "Condition": {
+                "ArnLike": {
+                    "AWS:SourceArn": "arn:aws:cloudfront::253862056441:distribution/E2SNJALJ8SXHFB"
+                }
+            }
+        }
+    ]
+}
+=====================================================
